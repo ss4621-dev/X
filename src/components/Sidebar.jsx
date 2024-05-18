@@ -1,12 +1,17 @@
 import Link from "next/link";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaAsterisk } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import { CiMail } from "react-icons/ci";
 import { HiHome } from "react-icons/hi";
+import { IoPeopleOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
 
 export default function Sidebar() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 border-r">
       <Link href="/">
-        <FaXTwitter className="w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200" />
+        <FaAsterisk className="w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200" />
       </Link>
       <Link
         href="/"
@@ -15,7 +20,42 @@ export default function Sidebar() {
         <HiHome className="w-7 h-7" />
         <span className="font-bold hidden xl:inline">Home</span>
       </Link>
-      <button className="bg-blue-400 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline                                                                                                                                                                                  ">
+      <Link
+        href="/"
+        className="flex items-center p-3 hover:bg-gray-100 rounded-full transition-all duration-200 gap-2 w-fit"
+      >
+        <CiSearch className="w-7 h-7" />
+        <span className="font-bold hidden xl:inline">Explore</span>
+      </Link>
+      <Link
+        href="/"
+        className="flex items-center p-3 hover:bg-gray-100 rounded-full transition-all duration-200 gap-2 w-fit"
+      >
+        <IoIosNotificationsOutline className="w-7 h-7" />
+        <span className="font-bold hidden xl:inline">Notifications</span>
+      </Link>
+      <Link
+        href="/"
+        className="flex items-center p-3 hover:bg-gray-100 rounded-full transition-all duration-200 gap-2 w-fit"
+      >
+        <CiMail className="w-7 h-7" />
+        <span className="font-bold hidden xl:inline">Messages</span>
+      </Link>
+      <Link
+        href="/"
+        className="flex items-center p-3 hover:bg-gray-100 rounded-full transition-all duration-200 gap-2 w-fit"
+      >
+        <IoPeopleOutline className="w-7 h-7" />
+        <span className="font-bold hidden xl:inline">Communities</span>
+      </Link>
+      <Link
+        href="/"
+        className="flex items-center p-3 hover:bg-gray-100 rounded-full transition-all duration-200 gap-2 w-fit"
+      >
+        <CgProfile className="w-7 h-7" />
+        <span className="font-bold hidden xl:inline">Profile</span>
+      </Link>
+      <button className="bg-yellow-400 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold                                                                                                                                                                                ">
         Sign In
       </button>
     </div>
