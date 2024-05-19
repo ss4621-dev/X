@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { FaAsterisk } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
@@ -6,8 +8,10 @@ import { CiMail } from "react-icons/ci";
 import { HiHome } from "react-icons/hi";
 import { IoPeopleOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Sidebar() {
+  const { data: session } = useSession();
   return (
     <div className="flex flex-col gap-4 border-r">
       <Link href="/">
@@ -55,9 +59,21 @@ export default function Sidebar() {
         <CgProfile className="w-7 h-7" />
         <span className="font-bold hidden xl:inline">Profile</span>
       </Link>
-      <button className="bg-yellow-400 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold                                                                                                                                                                                ">
-        Sign In
-      </button>
+      {session ? (
+        <button
+          className="bg-yellow-400 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold"
+          onClick={() => signOut()}
+        >
+          Sign Out
+        </button>
+      ) : (
+        <button
+          className="bg-yellow-400 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold"
+          onClick={() => signIn()}
+        >
+          Sign In
+        </button>
+      )}
     </div>
   );
 }
